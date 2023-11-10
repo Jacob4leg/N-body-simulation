@@ -1,0 +1,81 @@
+﻿<Window x:Class="N_Body_Simulation.AddWindow"
+        x:Name="addWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:N_Body_Simulation"
+        mc:Ignorable="d"
+        Title="addWindow" Height="450" Width="800">
+        
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Slider x:Name="MassSlider" Grid.Column="0" Grid.Row="0"
+                Minimum="0" Maximum="100"
+                VerticalAlignment="Center" Value="{Binding MassVal}"/>
+        <Slider x:Name="XCordSlider" Grid.Column="0" Grid.Row="1"
+                Minimum="-100" Maximum="100"
+                VerticalAlignment="Center" Value="{Binding PositionXVal}"/>
+        <Slider x:Name="YCordSlider" Grid.Column="0"
+                Grid.Row="2" Minimum="-100" Maximum="100"
+                VerticalAlignment="Center" Value="{Binding PositionYVal}"/>
+        <Slider x:Name="XVelSlider" Grid.Column="0"
+                Grid.Row="3" Minimum="-10" Maximum="10"
+                VerticalAlignment="Center" Value="{Binding VelocityXVal}"/>
+        <Slider x:Name="YVelSlider" Grid.Column="0"
+                Grid.Row="4" Minimum="-10" Maximum="10"
+                VerticalAlignment="Center" Value="{Binding VelocityYVal}"/>
+
+        <TextBlock Grid.Row="0" Grid.Column="1"
+                 VerticalAlignment="Center" 
+                 Text="{Binding Path=Value,ElementName=MassSlider}"
+                 FontSize="20"/>
+        <TextBlock Grid.Row="1" Grid.Column="1"
+                 VerticalAlignment="Center" 
+                 Text="{Binding Path=Value,ElementName=XCordSlider}"
+                 FontSize="20"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" 
+                 VerticalAlignment="Center" 
+                 Text="{Binding Path=Value,ElementName=YCordSlider}"
+                 FontSize="20"/>
+        <TextBlock Grid.Row="3" Grid.Column="1" 
+                 VerticalAlignment="Center" 
+                 Text="{Binding Path=Value,ElementName=XVelSlider}"
+                 FontSize="20"/>
+        <TextBlock Grid.Row="4" Grid.Column="1" 
+                 VerticalAlignment="Center" 
+                 Text="{Binding Path=Value,ElementName=YVelSlider}"
+                 FontSize="20"/>
+
+        <TextBlock Text="Mass" Grid.Column="2" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        <TextBlock Text="X-Coordinate" Grid.Row="1" Grid.Column="2" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        <TextBlock Text="Y-Coordinate" Grid.Row="2" Grid.Column="2" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        <TextBlock Text="X-Velocity" Grid.Row="3" Grid.Column="2" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        <TextBlock Text="Y-Velocity" Grid.Row="4" Grid.Column="2" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+
+        
+
+        <Button Grid.Row="5" Content="ADD" FontSize="30" 
+                FontWeight="Bold" Background="Green"
+                Command="{Binding AddCommand}" CommandParameter="{Binding ElementName=addWindow}"/>
+        <Button Grid.Row="5" Grid.Column="1" Content="ABORT"
+                FontSize="30" FontWeight="Bold" Background="Red"
+                Command="{Binding AbortCommand}" CommandParameter="{Binding ElementName=addWindow}"/>
+
+
+    </Grid>
+</Window>
